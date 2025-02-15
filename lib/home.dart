@@ -53,8 +53,65 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              Text("Recommendation",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Recommendation",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "See All",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 248, 3, 3)),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(height: 10),
+              SizedBox(
+                height: 250,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _buildRecipe(
+                      "Creamy Pasta",
+                      "By David Charles",
+                      "assets/pasta.jpg",
+                    ),
+                    _buildRecipe(
+                        "Macarons", "By Rachel William", "assets/macarons.jpg"),
+                    _buildRecipe(
+                        "Chicken Dish", "By Samuel Cook", "assets/chicken.jpg"),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Recepe of the week",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "See All",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 248, 3, 3)),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              SizedBox(
+                height: 15,
+              ),
               SizedBox(height: 10),
               SizedBox(
                 height: 250,
