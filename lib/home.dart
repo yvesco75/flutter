@@ -15,63 +15,66 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "What would you like to cook today?",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Search any recipes",
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.filter_list_rounded),
-                  onPressed: () {
-                    print("Filter icon tapped");
-                  },
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "What would you like to cook today?",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Search any recipes",
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.filter_list_rounded),
+                    onPressed: () {
+                      print("Filter icon tapped");
+                    },
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text("Categories",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildCategory("Breakfast", Icons.free_breakfast),
-                _buildCategory("Lunch", Icons.lunch_dining),
-                _buildCategory("Dinner", Icons.dinner_dining),
-                _buildCategory("Dessert", Icons.cake),
-              ],
-            ),
-            SizedBox(height: 20),
-            Text("Recommendation",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
-            Expanded(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+              SizedBox(height: 20),
+              Text("Categories",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildRecipe(
-                    "Creamy Pasta",
-                    "By David Charles",
-                    "assets/pasta.jpg",
-                  ),
-                  _buildRecipe(
-                      "Macarons", "By Rachel William", "assets/macarons.jpg"),
-                  _buildRecipe(
-                      "Chicken Dish", "By Samuel Cook", "assets/chicken.jpg"),
+                  _buildCategory("Breakfast", Icons.free_breakfast),
+                  _buildCategory("Lunch", Icons.lunch_dining),
+                  _buildCategory("Dinner", Icons.dinner_dining),
+                  _buildCategory("Dessert", Icons.cake),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              Text("Recommendation",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              SizedBox(height: 10),
+              SizedBox(
+                height: 250,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _buildRecipe(
+                      "Creamy Pasta",
+                      "By David Charles",
+                      "assets/pasta.jpg",
+                    ),
+                    _buildRecipe(
+                        "Macarons", "By Rachel William", "assets/macarons.jpg"),
+                    _buildRecipe(
+                        "Chicken Dish", "By Samuel Cook", "assets/chicken.jpg"),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
