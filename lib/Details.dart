@@ -82,6 +82,60 @@ class Details extends StatelessWidget {
                       icon: Icons.local_fire_department, text: "512 cal"),
                 ],
               ),
+              const SizedBox(height: 20),
+
+              // Description
+              const Text(
+                "Chocolate is the best kind of dessert! These choco macarons are simply heavenly! "
+                "Delicate little cookies filled with chocolate ganache.",
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+              const SizedBox(height: 20),
+
+              // Ingrédients
+              const Text(
+                "Ingredients",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+
+              // Liste d'ingrédients
+              Column(
+                children: const [
+                  IngredientItem(name: "Granulated sugar", quantity: "160 g"),
+                  IngredientItem(name: "Ground almond", quantity: "160 g"),
+                  IngredientItem(name: "Dark chocolate", quantity: "110 g"),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // Bouton pour la vidéo
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Action à effectuer lors du clic sur le bouton (lancer une vidéo par exemple)
+                    // Ici, tu pourrais rediriger vers un lecteur de vidéo ou afficher une alerte
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text("Video not available"),
+                          content: Text("You can add a video player here."),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("Close"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: Text("Watch the Recipe Video"),
+                ),
+              ),
             ],
           ),
         ),
@@ -90,7 +144,41 @@ class Details extends StatelessWidget {
   }
 }
 
-// Widget pour les informations de la recette
+// Widget pour un ingrédient
+class IngredientItem extends StatelessWidget {
+  final String name;
+  final String quantity;
+
+  const IngredientItem({required this.name, required this.quantity, Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.grey.shade200,
+                child: const Icon(Icons.food_bank, color: Colors.black54),
+              ),
+              const SizedBox(width: 10),
+              Text(name, style: const TextStyle(fontSize: 16)),
+            ],
+          ),
+          Text(quantity,
+              style:
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
+}
+
+// Widget pour afficher les infos de la recette (Temps, Difficulté, Calories)
 class RecipeInfo extends StatelessWidget {
   final IconData icon;
   final String text;
@@ -104,7 +192,7 @@ class RecipeInfo extends StatelessWidget {
       children: [
         Icon(icon, color: Colors.grey),
         const SizedBox(width: 5),
-        Text(text, style: const TextStyle(color: Colors.grey)),
+        Text(text, style: const TextStyle(fontSize: 14, color: Colors.grey)),
       ],
     );
   }
