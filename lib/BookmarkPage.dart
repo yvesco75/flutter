@@ -27,10 +27,16 @@ class BookmarkPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
+
+            // Sections de recettes
             SectionWidget(title: "Recently Viewed"),
             RecipeList(),
+            SizedBox(height: 20),
+
             SectionWidget(title: "Made It"),
             RecipeList(),
+            SizedBox(height: 20),
+
             SectionWidget(title: "Breakfast"),
             RecipeList(),
           ],
@@ -76,6 +82,50 @@ class SectionWidget extends StatelessWidget {
             "See all",
             style: TextStyle(fontSize: 14, color: Colors.green),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+// Liste horizontale des recettes
+class RecipeList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 120,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          RecipeCard(image: "assets/recipe1.jpg", text: "32+ Recipes"),
+          RecipeCard(image: "assets/recipe2.jpg", text: "10 Recipes"),
+        ],
+      ),
+    );
+  }
+}
+
+// Carte d'affichage pour une recette
+class RecipeCard extends StatelessWidget {
+  final String image;
+  final String text;
+
+  RecipeCard({required this.image, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child:
+                Image.asset(image, width: 100, height: 100, fit: BoxFit.cover),
+          ),
+          SizedBox(height: 5),
+          Text(text,
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
         ],
       ),
     );
