@@ -28,6 +28,39 @@ class Details extends StatelessWidget {
               const SizedBox(height: 10),
               const Text("Your favorite recipes will appear here."),
               const SizedBox(height: 10),
+
+              // Image principale
+              Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/macarons.jpg', // Remplace par ton image
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+
+              // Titre + Note
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Choco Macarons",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      Text("By Rachel William",
+                          style: TextStyle(color: Colors.grey)),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
         ),
