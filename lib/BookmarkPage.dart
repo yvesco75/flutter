@@ -27,8 +27,41 @@ class BookmarkPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
+            SectionWidget(title: "Recently Viewed"),
+            RecipeList(),
+            SectionWidget(title: "Made It"),
+            RecipeList(),
+            SectionWidget(title: "Breakfast"),
+            RecipeList(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// Widget pour les titres des sections
+class SectionWidget extends StatelessWidget {
+  final String title;
+
+  SectionWidget({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            "See all",
+            style: TextStyle(fontSize: 14, color: Colors.green),
+          ),
+        ],
       ),
     );
   }
