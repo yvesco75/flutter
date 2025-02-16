@@ -1,5 +1,7 @@
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:dunu/home.dart';
+import 'package:dunu/Details.dart';
+import 'package:dunu/BookmarkPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,18 +56,20 @@ class _MyHomePageState extends State<MyHomePage>
       extendBody: true,
       bottomNavigationBar: CircleNavBar(
         activeIcons: const [
-          Icon(Icons.home, color: Colors.deepPurple),
-          Icon(Icons.person, color: Colors.deepPurple),
-          Icon(Icons.favorite, color: Colors.deepPurple),
+          Icon(Icons.home, color: Color(0xFF40E018)),
+          Icon(Icons.search, color: Color(0xFF40E018)),
+          Icon(Icons.screenshot_outlined, color: Color(0xFF40E018)),
+          Icon(Icons.person, color: Color(0xFF40E018)),
         ],
         inactiveIcons: const [
-          Icon(Icons.home, color: Colors.deepPurple),
-          Icon(Icons.person, color: Colors.deepPurple),
-          Icon(Icons.favorite, color: Colors.deepPurple),
+          Icon(Icons.home, color: Color(0xFF40E018)),
+          Icon(Icons.search, color: Color(0xFF40E018)),
+          Icon(Icons.screenshot_outlined, color: Color(0xFF40E018)),
+          Icon(Icons.person, color: Color(0xFF40E018)),
         ],
-        color: Colors.white,
-        height: 60,
-        circleWidth: 60,
+        color: const Color.fromRGBO(255, 255, 255, 1),
+        height: 40,
+        circleWidth: 20,
         activeIndex: tabIndex,
         onTap: (index) {
           tabIndex = index;
@@ -88,6 +92,8 @@ class _MyHomePageState extends State<MyHomePage>
         },
         children: [
           HomePage(),
+          Details(),
+          BookmarkPage(),
           Container(
               width: double.infinity,
               height: double.infinity,
