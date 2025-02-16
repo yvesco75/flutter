@@ -46,10 +46,10 @@ class Details extends StatelessWidget {
               // Titre + Note
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Choco Macarons",
                         style: TextStyle(
@@ -59,12 +59,53 @@ class Details extends StatelessWidget {
                           style: TextStyle(color: Colors.grey)),
                     ],
                   ),
+                  Row(
+                    children: [
+                      Icon(Icons.star, color: Colors.amber),
+                      SizedBox(width: 5),
+                      Text("4.5",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+
+              // Infos recette
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  RecipeInfo(icon: Icons.access_time, text: "10 mins"),
+                  RecipeInfo(icon: Icons.signal_cellular_alt, text: "Medium"),
+                  RecipeInfo(
+                      icon: Icons.local_fire_department, text: "512 cal"),
                 ],
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+// Widget pour les informations de la recette
+class RecipeInfo extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const RecipeInfo({required this.icon, required this.text, Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(icon, color: Colors.grey),
+        const SizedBox(width: 5),
+        Text(text, style: const TextStyle(color: Colors.grey)),
+      ],
     );
   }
 }
