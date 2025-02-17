@@ -97,8 +97,8 @@ class RecipeList extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          RecipeCard(image: "assets/recipe1.jpg", text: "32+ Recipes"),
-          RecipeCard(image: "assets/recipe2.jpg", text: "10 Recipes"),
+          RecipeCard(image: "assets/macarons.jpg", text: "32+ Recipes"),
+          RecipeCard(image: "assets/chicken.jpg", text: "10 Recipes"),
         ],
       ),
     );
