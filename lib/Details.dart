@@ -5,7 +5,7 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Favorite Recipes"),
+        title: const Text("Product details"),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -26,7 +26,7 @@ class Details extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 10),
-              const Text("Your favorite recipes will appear here."),
+              const Text("Receive product details for better preparation"),
               const SizedBox(height: 10),
 
               // Image principale
@@ -108,34 +108,6 @@ class Details extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-
-              // Bouton pour la vidéo
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Action à effectuer lors du clic sur le bouton (lancer une vidéo par exemple)
-                    // Ici, tu pourrais rediriger vers un lecteur de vidéo ou afficher une alerte
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("Video not available"),
-                          content: Text("You can add a video player here."),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text("Close"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: Text("Watch the Recipe Video"),
-                ),
-              ),
             ],
           ),
         ),

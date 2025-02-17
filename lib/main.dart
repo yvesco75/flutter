@@ -57,15 +57,13 @@ class _MyHomePageState extends State<MyHomePage>
       bottomNavigationBar: CircleNavBar(
         activeIcons: const [
           Icon(Icons.home, color: Color(0xFF40E018)),
-          Icon(Icons.search, color: Color(0xFF40E018)),
+          Icon(Icons.details_rounded, color: Color(0xFF40E018)),
           Icon(Icons.screenshot_outlined, color: Color(0xFF40E018)),
-          Icon(Icons.person, color: Color(0xFF40E018)),
         ],
         inactiveIcons: const [
           Icon(Icons.home, color: Color(0xFF40E018)),
-          Icon(Icons.search, color: Color(0xFF40E018)),
+          Icon(Icons.details_rounded, color: Color(0xFF40E018)),
           Icon(Icons.screenshot_outlined, color: Color(0xFF40E018)),
-          Icon(Icons.person, color: Color(0xFF40E018)),
         ],
         color: const Color.fromRGBO(255, 255, 255, 1),
         height: 40,
